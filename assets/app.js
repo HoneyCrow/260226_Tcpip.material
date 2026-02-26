@@ -167,12 +167,69 @@ function App() {
           </div>
           <div className="simulation">
             <p>配送アニメーション（混雑度で速度と損失が変化）</p>
-            <div className="track" style={{ "--speed": `${speed}s`, "--loss": loss }}>
-              <div className="packet p1 animate">1</div>
-              <div className="packet p2 animate" style={{ animationDelay: "0.6s" }}>
-                2
+            {exchangeMode === "circuit" ? (
+              <div className="track" style={{ "--speed": `${speed}s`, "--loss": loss }}>
+                <div style={{ position: "relative", height: "100%" }}>
+                  <div style={{ position: "absolute", left: 0, top: "10%", right: 0, fontSize: "0.8rem", color: "#94a3b8", padding: "0 8px" }}>
+                    専用ルート（1本道）
+                  </div>
+                  <div className="packet p1 animate" style={{ top: "16px" }}>
+                    1
+                  </div>
+                  <div
+                    className="packet p2 animate"
+                    style={{ top: "40px", animationDelay: "0.6s" }}
+                  >
+                    2
+                  </div>
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="track multi-route" style={{ "--speed": `${speed}s`, "--loss": loss }}>
+                <div style={{ position: "absolute", left: 0, top: "4px", fontSize: "0.75rem", color: "#94a3b8", zIndex: 10 }}>
+                  複数ルート（分割配送）
+                </div>
+                <div className="route">
+                  <div
+                    className="packet p1 animate-top"
+                    style={{ top: "20px", width: "24px", height: "24px" }}
+                  >
+                    1a
+                  </div>
+                  <div
+                    className="packet p2 animate-top"
+                    style={{
+                      top: "20px",
+                      animationDelay: "0.6s",
+                      width: "24px",
+                      height: "24px",
+                    }}
+                  >
+                    2a
+                  </div>
+                </div>
+                <div className="route">
+                  <div
+                    className="packet p1 animate-bottom"
+                    style={{ top: "20px", width: "24px", height: "24px" }}
+                  >
+                    1b
+                  </div>
+                  <div
+                    className="packet p2 animate-bottom"
+                    style={{
+                      top: "20px",
+                      animationDelay: "0.6s",
+                      width: "24px",
+                      height: "24px",
+                    }}
+                  >
+                    2b
+                  </div>
+                  <div className="recombine">✓</div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
