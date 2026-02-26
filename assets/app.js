@@ -62,32 +62,6 @@ function App() {
           住所（IP）と追跡（TCP）で、分割した手紙（パケット）を確実に届ける。
           比喩で感覚的に理解しよう。
         </p>
-        <div className="cta">
-          <button
-            className={`btn ${transportMode === "tcp" ? "active" : ""}`}
-            onClick={() => setTransportMode("tcp")}
-          >
-            TCPを表示
-          </button>
-          <button
-            className={`btn ${transportMode === "udp" ? "active" : ""}`}
-            onClick={() => setTransportMode("udp")}
-          >
-            UDPを表示
-          </button>
-          <button
-            className={`btn ${exchangeMode === "circuit" ? "active" : ""}`}
-            onClick={() => setExchangeMode("circuit")}
-          >
-            回線交換
-          </button>
-          <button
-            className={`btn ${exchangeMode === "packet" ? "active" : ""}`}
-            onClick={() => setExchangeMode("packet")}
-          >
-            パケット交換
-          </button>
-        </div>
       </section>
 
       <section className="section">
@@ -115,6 +89,20 @@ function App() {
 
       <section className="section">
         <h2>TCP/IPの簡単な説明</h2>
+        <div className="cta" style={{ marginBottom: "16px" }}>
+          <button
+            className={`btn ${transportMode === "tcp" ? "active" : ""}`}
+            onClick={() => setTransportMode("tcp")}
+          >
+            TCPを表示
+          </button>
+          <button
+            className={`btn ${transportMode === "udp" ? "active" : ""}`}
+            onClick={() => setTransportMode("udp")}
+          >
+            UDPを表示
+          </button>
+        </div>
         <div className="grid two">
           <div className="compare-card">
             <h3>IP = 住所</h3>
@@ -138,6 +126,20 @@ function App() {
 
       <section className="section">
         <h2>交換方式（体験型）</h2>
+        <div className="cta" style={{ marginBottom: "16px" }}>
+          <button
+            className={`btn ${exchangeMode === "circuit" ? "active" : ""}`}
+            onClick={() => setExchangeMode("circuit")}
+          >
+            回線交換
+          </button>
+          <button
+            className={`btn ${exchangeMode === "packet" ? "active" : ""}`}
+            onClick={() => setExchangeMode("packet")}
+          >
+            パケット交換
+          </button>
+        </div>
         <div className="grid two">
           <div>
             <div className="compare-card">
