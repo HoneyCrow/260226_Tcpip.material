@@ -57,7 +57,7 @@ function App() {
     <div className="page">
       <section className="hero">
         <span className="badge">情報I：TCP/IP 体験教材</span>
-        <h1>TCP/IPは「情報の郵便配達ルール」</h1>
+        <h1>TCP/IPとは「情報の郵便配達ルール」</h1>
         <p>
           住所（IP）と追跡（TCP）で、分割した手紙（パケット）を確実に届ける。
           比喩で感覚的に理解しよう。
